@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardSkills.OrchardCore.OrchardCMS", "OrchardSkills.OrchardCore.OrchardCMS\OrchardSkills.OrchardCore.OrchardCMS.csproj", "{188E05C2-5936-4535-AAB4-0A2E407B9365}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6DC403C1-3DF3-4D69-859E-A1A26DCBA989}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		Nuget.config = Nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheCleanBlogTheme", "OrchardSkills.OrchardCore.TheCleanBlogTheme\TheCleanBlogTheme.csproj", "{2F1960B9-E026-4BBD-A9C0-24812F14AD17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCore.Disqus", "OrchardCore.Disqus\OrchardCore.Disqus.csproj", "{F2D8373D-D4BD-4EA5-A761-C948A16378DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCore.ContentPermissions", "OrchardCore.ContentPermissions\OrchardCore.ContentPermissions.csproj", "{F22CA11D-74CE-4EDB-BBEB-A9CB94E499D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{188E05C2-5936-4535-AAB4-0A2E407B9365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{188E05C2-5936-4535-AAB4-0A2E407B9365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{188E05C2-5936-4535-AAB4-0A2E407B9365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{188E05C2-5936-4535-AAB4-0A2E407B9365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F1960B9-E026-4BBD-A9C0-24812F14AD17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F1960B9-E026-4BBD-A9C0-24812F14AD17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F1960B9-E026-4BBD-A9C0-24812F14AD17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F1960B9-E026-4BBD-A9C0-24812F14AD17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D8373D-D4BD-4EA5-A761-C948A16378DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D8373D-D4BD-4EA5-A761-C948A16378DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D8373D-D4BD-4EA5-A761-C948A16378DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D8373D-D4BD-4EA5-A761-C948A16378DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F22CA11D-74CE-4EDB-BBEB-A9CB94E499D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22CA11D-74CE-4EDB-BBEB-A9CB94E499D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22CA11D-74CE-4EDB-BBEB-A9CB94E499D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22CA11D-74CE-4EDB-BBEB-A9CB94E499D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C211931-2118-4CC4-9735-64449CE7FCE4}
+	EndGlobalSection
+EndGlobal
