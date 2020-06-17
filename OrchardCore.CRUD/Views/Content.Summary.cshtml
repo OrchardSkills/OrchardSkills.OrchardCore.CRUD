@@ -41,8 +41,8 @@
         </div>
     }
     <div class="float-right">
-        <a href="Edit?contentItemId=@contentItem.ContentItemId">Edit</a>&nbsp;
-        <a href="Remove?contentItemId=@contentItem.ContentItemId">Delete</a>
+        <a asp-action="Edit" asp-controller="Home" asp-route-contentItemId="@contentItem.ContentItemId">Edit</a>&nbsp;
+        <a asp-action="Remove" asp-controller="Home" asp-route-contentItemId="@contentItem.ContentItemId">Delete</a>
     </div>
 </div>
 
