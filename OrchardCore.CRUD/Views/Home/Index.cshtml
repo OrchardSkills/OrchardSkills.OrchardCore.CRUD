@@ -1,0 +1,34 @@
+@model ListContentsViewModel
+@using OrchardCore.ContentManagement;
+@using OrchardCore.CRUD.ViewModels;
+@inject IContentManager ContentManager
+
+@{
+var pageTitle = T["Meals"];
+}
+
+<h1>@RenderTitleSegments(pageTitle)</h1>
+    <a href="Create">@T["Create"]</a>
+<form asp-action="List" asp-controller="Admin" method="post" id="items-form" autocomplete="off">
+    <ul class="list-group with-checkbox">
+        @if (Model.ContentItems.Count > 0)
+        {
+            @foreach (var contentItemSummary in Model.ContentItems)
+            {
+                <li class="list-group-item">
+                    @await DisplayAsync(contentItemSummary)
+                </li>
+            }
+        }
+        else
+        {
+            <li class="list-group-item">
+                <div class="alert alert-info">
+                    @T["No results found."]
+                </div>
+            </li>
+        }
+    </ul>
+
+    @await DisplayAsync(Model.Pager)
+</form>

@@ -1,0 +1,215 @@
+{
+  "name": "CRUD",
+  "displayName": "CRUD",
+  "description": "Provides CRUD features.",
+  "author": "Orchard Skills, Inc",
+  "website": "https://orchardskills.com",
+  "version": "1.0.0-rc2",
+  "issetuprecipe": true,
+  "categories": [ "crud" ],
+  "tags": [ "developer", "crud" ],
+  "steps": [
+    {
+      "name": "feature",
+      "disable": [],
+      "enable": [
+        "OrchardCore.Admin",
+        "OrchardCore.Autoroute",
+        "OrchardCore.ContentFields",
+        "OrchardCore.Contents",
+        "OrchardCore.Contents.FileContentDefinition",
+        "OrchardCore.ContentTypes",
+        "OrchardCore.CRUD",
+        "OrchardCore.Diagnostics",
+        "OrchardCore.DynamicCache",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Html",
+        "OrchardCore.Localization",
+        "OrchardCore.Features",
+        "OrchardCore.Navigation",
+        "OrchardCore.Recipes",
+        "OrchardCore.Resources",
+        "OrchardCore.Roles",
+        "OrchardCore.Scripting",
+        "OrchardCore.Settings",
+        "OrchardCore.Title",
+        "OrchardCore.Tenants",
+        "OrchardCore.Themes",
+        "OrchardCore.Users",
+
+        // Themes
+        "TheTheme",
+        "TheAdmin",
+        "SafeMode"
+      ]
+    },
+    {
+      "name": "themes",
+      "admin": "TheAdmin",
+      "site": "TheTheme"
+    },
+    {
+      "name": "settings",
+      "HomeRoute": {
+        "Action": "Index",
+        "Controller": "Home",
+        "Area": "OrchardCore.CRUD"
+      }
+    },
+    {
+      "name": "ContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "Meal",
+          "DisplayName": "Meal",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Listable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Meal",
+              "Name": "Meal",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1",
+                  "Editor": "Wysiwyg"
+                },
+                "HtmlBodyPartSettings": {}
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ContentParts": [
+        {
+          "Name": "TitlePart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Description": "Provides a Title for your content item.",
+              "DefaultPosition": "0"
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "HtmlBodyPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Description": "Provides an HTML Body for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "Meal",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "NumericField",
+              "Name": "Price",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Price",
+                  "Position": "0"
+                },
+                "NumericFieldSettings": {
+                  "Scale": 2
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Ingredients",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Ingredients",
+                  "Editor": "TextArea",
+                  "Position": "1"
+                },
+                "TextFieldSettings": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Content",
+      "data": [
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Chicken Noodle Soup",
+          "Latest": true,
+          "Published": true,
+          "Owner": "admin",
+          "Author": "admin",
+          "Meal": {
+            "Price": {
+              "Value": 5.0
+            },
+            "Ingredients": {
+              "Text": "Chicken, Carrots Celery, Water"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Homemade Chicken noodle Soup</p>"
+          },
+          "TitlePart": {
+            "Title": "Chicken Noodle Soup"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Spaghetti",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": "admin",
+          "Meal": {
+            "Price": {
+              "Value": 5.0
+            },
+            "Ingredients": {
+              "Text": "Ground Beef, Tomato sauce, Diced tomatoes, Tomato paste, Beef broth, Canned mushrooms, A splash of wine, Onion, celery, and fresh garlic. Dried herbs, kosher salt, and freshly ground black pepper and a pinch of sugar for sweetness. Dried whole cloves."
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p><span style=\"color: rgba(77, 81, 86, 1); font-family: Roboto, arial, sans-serif; font-size: 14px\">Spaghetti is a long, thin, solid, cylindrical pasta. It is a staple food of traditional Italian cuisine. Like other pasta, spaghetti is made of milled wheat and water and sometimes enriched with vitamins and minerals.</span><br></p>"
+          },
+          "TitlePart": {
+            "Title": "Spaghetti"
+          }
+        }
+      ]
+    }
+  ]
+}
