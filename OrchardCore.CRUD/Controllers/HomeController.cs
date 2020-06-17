@@ -145,14 +145,14 @@ namespace OrchardCore.CRUD.Controllers
                 return LocalRedirect(returnUrl);
             }
 
-            var adminRouteValues = (await _contentManager.PopulateAspectAsync<ContentItemMetadata>(contentItem)).AdminRouteValues;
+            //var adminRouteValues = (await _contentManager.PopulateAspectAsync<ContentItemMetadata>(contentItem)).AdminRouteValues;
 
-            if (!string.IsNullOrEmpty(returnUrl))
-            {
-                adminRouteValues.Add("returnUrl", returnUrl);
-            }
+            //if (!string.IsNullOrEmpty(returnUrl))
+            //{
+            //    adminRouteValues.Add("returnUrl", returnUrl);
+            //}
 
-            return RedirectToRoute(adminRouteValues);
+            return RedirectToRoute(returnUrl);
         }
 
         [HttpGet]
