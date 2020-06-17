@@ -8,7 +8,7 @@ var pageTitle = T["Meals"];
 }
 
 <h1>@RenderTitleSegments(pageTitle)</h1>
-    <a href="Create">@T["Create"]</a>
+<a asp-action="Create" asp-controller="Home">@T["Create"]</a>
 <form asp-action="List" asp-controller="Admin" method="post" id="items-form" autocomplete="off">
     <ul class="list-group with-checkbox">
         @if (Model.ContentItems.Count > 0)
