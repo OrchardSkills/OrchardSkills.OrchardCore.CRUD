@@ -215,18 +215,20 @@ namespace OrchardCore.CRUD.Controllers
 
             await conditionallyPublish(contentItem);
 
-            if (returnUrl == null)
-            {
-                return RedirectToAction("Edit", new RouteValueDictionary { { "ContentItemId", contentItem.ContentItemId } });
-            }
-            else if (stayOnSamePage)
-            {
-                return RedirectToAction("Edit", new RouteValueDictionary { { "ContentItemId", contentItem.ContentItemId }, { "returnUrl", returnUrl } });
-            }
-            else
-            {
-                return LocalRedirect(returnUrl);
-            }
+            //if (returnUrl == null)
+            //{
+            //    return RedirectToAction("Edit", new RouteValueDictionary { { "ContentItemId", contentItem.ContentItemId } });
+            //}
+            //else if (stayOnSamePage)
+            //{
+            //    return RedirectToAction("Edit", new RouteValueDictionary { { "ContentItemId", contentItem.ContentItemId }, { "returnUrl", returnUrl } });
+            //}
+            //else
+            //{
+            //    return LocalRedirect(returnUrl);
+            //}
+
+            return RedirectToRoute(returnUrl);
         }
 
         public async Task<IActionResult> Remove(string contentItemId, string returnUrl)

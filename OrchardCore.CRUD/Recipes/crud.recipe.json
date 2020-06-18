@@ -166,24 +166,208 @@
         {
           "ContentItemId": "[js: uuid()]",
           "ContentType": "Meal",
-          "DisplayText": "Chicken Noodle Soup",
+          "DisplayText": "Chicken Pot Pie",
           "Latest": true,
           "Published": true,
-          "Owner": "admin",
-          "Author": "admin",
+          "Owner": null,
+          "Author": null,
           "Meal": {
             "Price": {
-              "Value": 5.0
+              "Value": 25.0
             },
             "Ingredients": {
-              "Text": "Chicken, Carrots Celery, Water"
+              "Text": "2 cups diced peeled potatoes\r\n1-3/4 cups sliced carrots\r\n1 cup butter, cubed \r\n2/3 cup chopped onion\r\n1 cup all-purpose flour\r\n1-3/4 teaspoons salt\r\n1 teaspoon dried thyme\r\n3/4 teaspoon pepper\r\n3 cups chicken broth\r\n1-1/2 cups whole milk\r\n4 cups cubed cooked chicken\r\n1 cup frozen peas\r\n1 cup of frozen corn\r\n4 sheets refrigerated pie crust"
             }
           },
           "HtmlBodyPart": {
-            "Html": "<p>Homemade Chicken noodle Soup</p>"
+            "Html": "<p><font color=\"#696868\"><em>Preheat oven to 425°. Place potatoes and carrots in a large saucepan; add water to cover. Bring to a boil. Reduce heat; cook, covered, 8-10 minutes or until crisp-tender; drain.</em></font></p><p><font color=\"#696868\"><em>In a large skillet, heat butter over medium-high heat. Add onion; cook and stir until tender. Stir in flour and seasonings until blended. Gradually stir in broth and milk. Bring to a boil, stirring constantly; cook and stir 2 minutes or until thickened. Stir in chicken, peas, corn and potato mixture; remove from heat.</em></font></p><p><font color=\"#696868\"><em>Unroll a pie crust into each of two 9-in. pie plates; trim even with rims. Add chicken mixture. Unroll remaining crusts; place over filling. Trim, seal and flute edges. Cut slits in tops.</em></font></p><p><font color=\"#696868\"><em>Bake 35-40 minutes or until crust is lightly browned. Let stand 15 minutes before cutting.</em></font></p><p><font color=\"#696868\"><em>Freeze option: Cover and freeze unbaked pies. To use, remove from freezer 30 minutes before baking (do not thaw). Preheat oven to 425°. Place pies on baking sheets; cover edges loosely with foil. Bake 30 minutes. Reduce oven setting to 350°; bake 70-80 minutes longer or until crust is golden brown and a thermometer inserted in center reads 165°.</em></font></p>"
           },
           "TitlePart": {
-            "Title": "Chicken Noodle Soup"
+            "Title": "Chicken Pot Pie"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Beef Stew",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "2 pounds beef stew meat, cut into 1-inch cubes\r\n1 to 2 tablespoons canola oil\r\n1-1/2 cups chopped onions\r\n1 can (14-1/2 ounces) diced tomatoes, undrained\r\n1 can (10-1/2 ounces) condensed beef broth, undiluted\r\n3 tablespoons quick-cooking tapioca\r\n1 garlic clove, minced\r\n1 tablespoon dried parsley flakes\r\n1 teaspoon salt\r\n1/4 teaspoon pepper\r\n1 bay leaf\r\n6 medium carrots, cut into 2-inch pieces\r\n3 medium potatoes, peeled and cut into 2-inch pieces\r\n1 cup sliced celery (1-inch lengths)"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>In an oven-safe Dutch oven, brown beef in batches in oil; drain. Return all meat to the pan. Add onions, tomatoes, broth, tapioca, garlic, parsley, salt, pepper and bay leaf. Bring to a boil.</p><p>Cover stew and bake at 350° for 1 hour. Stir in carrots, potatoes and celery. Bake, covered, 1 hour longer or until meat and vegetables are tender. Discard bay leaf.</p>"
+          },
+          "TitlePart": {
+            "Title": "Beef Stew"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Mac & Cheese",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 15.0
+            },
+            "Ingredients": {
+              "Text": "2 cups uncooked elbow macaroni (about 8 ounces)\r\n2 tablespoons butter\r\n2 tablespoons all-purpose flour\r\n1-1/2 cups half-and-half cream\r\n3/4 pound process cheese (Velveeta), cubed\r\nOptional toppings: fresh arugula, halved cherry tomatoes and coarsely ground pepper"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Cook macaroni according to package directions; drain.</p><p>Meanwhile, in a large cast-iron or other heavy skillet, melt butter over medium heat. Stir in flour until smooth; gradually whisk in cream. Bring to a boil, stirring constantly. Cook and stir until thickened, about 2 minutes. Reduce heat; stir in cheese until melted.</p><p>Add macaroni; cook and stir until heated through. Top as desired.</p>"
+          },
+          "TitlePart": {
+            "Title": "Mac & Cheese"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Chicken and Dumplings",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "3 celery ribs, chopped\r\n2 medium carrots, sliced\r\n3 cans (14-1/2 ounces each) reduced-sodium chicken broth\r\n3 cups cubed cooked chicken breast\r\n1/2 teaspoon poultry seasoning\r\n1/8 teaspoon pepper\r\n1-2/3 cups reduced-fat biscuit/baking mix\r\n2/3 cup fat-free milk"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>In a Dutch oven coated with cooking spray, cook and stir celery and carrots over medium heat until tender, about 5 minutes. Stir in broth, chicken and seasonings. Bring to a boil; reduce heat to a gentle simmer.</p><p>For dumplings, mix biscuit mix and milk until a soft dough forms. Drop by tablespoonfuls on top of the simmering liquid. Reduce heat to low; cover and cook until a toothpick inserted in dumplings comes out clean (do not lift cover during the first 10 minutes), 10-15 minutes.</p>"
+          },
+          "TitlePart": {
+            "Title": "Chicken and Dumplings"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Pot Roast",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "2 boneless beef chuck roasts (2-1/2 pounds each)\r\n1 envelope ranch salad dressing mix\r\n1 envelope Italian salad dressing mix\r\n1 envelope brown gravy mix\r\n1/2 cup water\r\nChopped fresh parsley, optional"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Place the chuck roasts in a 5-qt. slow cooker. In a small bowl, combine the salad dressings and gravy mix; stir in water. Pour over meat. Cover and cook on low for 7-8 hours or until tender. If desired, sprinkle with parsley and thicken cooking juices for gravy.<br></p>"
+          },
+          "TitlePart": {
+            "Title": "Pot Roast"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Meat Loaf",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 30.0
+            },
+            "Ingredients": {
+              "Text": "3 slices bread\r\n1 large egg, lightly beaten\r\n2/3 cup 2% milk\r\n1 cup shredded cheddar cheese\r\n1 medium onion, finely chopped\r\n1/2 cup finely shredded carrot\r\n1 teaspoon salt\r\n1/4 teaspoon pepper\r\n1-1/2 pounds ground beef\r\nGLAZE:\r\n1/4 cup packed brown sugar\r\n1/4 cup ketchup\r\n1 tablespoon prepared mustard"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Preheat oven to 350°. Tear bread into 2-inch pieces; place in a blender. Cover and pulse to form coarse crumbs; transfer to a large bowl. Stir in egg, milk, cheese, onion, carrot, salt and pepper. Add beef; mix lightly but thoroughly. Transfer to a greased 9x5-in. loaf pan.</p><p>In a small bowl, mix glaze ingredients; spread over loaf. Bake 60-75 minutes or until a thermometer reads 160°. Let stand 10 minutes before slicing.</p><p>Freeze option: Bake meat loaf without glaze. Securely wrap cooled meat loaf in foil, then freeze. To use, partially thaw meat loaf in refrigerator overnight. Prepare and spread glaze over top; reheat on a greased shallow baking pan in a preheated 350° oven until heated through and a thermometer inserted in center reads 165°.</p>"
+          },
+          "TitlePart": {
+            "Title": "Meat Loaf"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Enchiladas",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "1 pound ground beef\r\n1 medium onion, chopped\r\n2 tablespoons all-purpose flour\r\n1 tablespoon chili powder\r\n1 teaspoon salt\r\n1 teaspoon garlic powder\r\n1/2 teaspoon ground cumin\r\n1/4 teaspoon rubbed sage\r\n1 can (14-1/2 ounces) stewed tomatoes, cut up\r\nSAUCE:\r\n1/3 cup butter\r\n4 to 6 garlic cloves, minced\r\n1/2 cup all-purpose flour\r\n1 can (14-1/2 ounces) beef broth\r\n1 can (15 ounces) tomato sauce\r\n1 to 2 tablespoons chili powder\r\n1 to 2 teaspoons ground cumin\r\n1 to 2 teaspoons rubbed sage\r\n1/2 teaspoon salt\r\n10 flour tortillas (6 inches), warmed\r\n2 cups shredded Colby-Monterey Jack cheese, divided\r\nOptional toppings: Halved grape tomatoes, minced fresh cilantro, sliced jalapeno peppers and chopped or sliced medium red onion"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Preheat oven to 350°. In a large skillet, cook beef and onion over medium heat, crumbling meat, until beef is no longer pink, 6-8 minutes; drain. Stir in flour and seasonings. Add tomatoes; bring to a boil. Reduce heat; simmer, covered, 15 minutes.</p><p>In a saucepan, heat butter over medium-high heat. Add garlic; cook and stir 1 minute or until tender. Stir in flour until blended; gradually whisk in broth. Bring to a boil; cook and stir until thickened, about 2 minutes. Stir in tomato sauce and seasonings; heat through.</p><p>Pour 1-1/2 cups sauce into an ungreased 13x9-in. baking dish. Place about 1/4 cup beef mixture off center on each tortilla; top with 1-2 tablespoons cheese. Roll up and place over sauce, seam side down. Top with remaining sauce.</p><p>Bake, covered, until heated through, 30-35 minutes. Sprinkle with remaining cheese. Bake, uncovered, until cheese is melted, 10-15 minutes longer. Serve with toppings as desired.</p>"
+          },
+          "TitlePart": {
+            "Title": "Enchiladas"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Pork Chops",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "3 tablespoons butter\r\n3 tablespoons all-purpose flour\r\n1-1/2 teaspoons salt\r\n1/4 teaspoon pepper\r\n1 can (14-1/2 ounces) chicken broth\r\n6 pork rib or loin chops (3/4 inch thick)\r\n2 tablespoons canola oil\r\nAdditional salt and pepper, optional\r\n6 cups thinly sliced peeled potatoes\r\n1 medium onion, sliced\r\nPaprika and minced fresh parsley, optional"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>n a small saucepan, melt butter; stir in the flour, salt and pepper until smooth. Add broth. Bring to a boil; cook and stir for 1 minute or until thickened. Remove from the heat and set aside.</p><p>In a large skillet, brown the pork chops on both sides in oil; sprinkle with additional salt and pepper if desired.</p><p>In a greased 13x9-in. baking dish, layer potatoes and onion. Pour broth mixture over layers. Place pork chops on top.</p><p>Cover and bake at 350° for 1 hour; uncover and bake 30 minutes longer or until meat and potatoes are tender. If desired, sprinkle with paprika and parsley.</p>"
+          },
+          "TitlePart": {
+            "Title": "Pork Chops"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Parmesan Chicken",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "1/2 cup butter, melted\r\n2 teaspoons Dijon mustard\r\n1 teaspoon Worcestershire sauce\r\n1/2 teaspoon salt\r\n1 cup dry bread crumbs\r\n1/2 cup grated Parmesan cheese\r\n6 boneless skinless chicken breast halves (7 ounces each)"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Preheat oven to 350°. In a shallow bowl, combine butter, mustard, Worcestershire sauce and salt. Place bread crumbs and cheese in another shallow bowl. Dip chicken in butter mixture, then in bread crumb mixture, patting to help coating adhere.</p><p>Place in an ungreased 15x10x1-in. baking pan. Drizzle with any remaining butter mixture. Bake, uncovered, until a thermometer inserted in chicken reads 165°, 25-30 minutes.</p>"
+          },
+          "TitlePart": {
+            "Title": "Parmesan Chicken"
           }
         },
         {
@@ -193,20 +377,204 @@
           "Latest": true,
           "Published": true,
           "Owner": null,
-          "Author": "admin",
+          "Author": null,
           "Meal": {
             "Price": {
-              "Value": 5.0
+              "Value": 15.0
             },
             "Ingredients": {
-              "Text": "Ground Beef, Tomato sauce, Diced tomatoes, Tomato paste, Beef broth, Canned mushrooms, A splash of wine, Onion, celery, and fresh garlic. Dried herbs, kosher salt, and freshly ground black pepper and a pinch of sugar for sweetness. Dried whole cloves."
+              "Text": "2 pounds ground beef\r\n3/4 pound bulk Italian sausage\r\n4 medium onions, finely chopped\r\n8 garlic cloves, minced\r\n4 cans (14-1/2 ounces each) diced tomatoes, undrained\r\n4 cans (6 ounces each) tomato paste\r\n1/2 cup water\r\n1/4 cup sugar\r\n1/4 cup Worcestershire sauce\r\n1 tablespoon canola oil\r\n1/4 cup minced fresh parsley\r\n2 tablespoons minced fresh basil or 2 teaspoons dried basil\r\n1 tablespoon minced fresh oregano or 1 teaspoon dried oregano\r\n4 bay leaves\r\n1 teaspoon rubbed sage\r\n1/2 teaspoon salt\r\n1/2 teaspoon dried marjoram\r\n1/2 teaspoon pepper\r\nHot cooked spaghetti"
             }
           },
           "HtmlBodyPart": {
-            "Html": "<p><span style=\"color: rgba(77, 81, 86, 1); font-family: Roboto, arial, sans-serif; font-size: 14px\">Spaghetti is a long, thin, solid, cylindrical pasta. It is a staple food of traditional Italian cuisine. Like other pasta, spaghetti is made of milled wheat and water and sometimes enriched with vitamins and minerals.</span><br></p>"
+            "Html": "<p><font color=\"#4d5156\"><span style=\"font-size: 14px\">In a Dutch oven, cook the beef, sausage, onions and garlic over medium heat until meat is no longer pink; drain.</span></font></p><p><font color=\"#4d5156\"><span style=\"font-size: 14px\">Transfer to a 5-qt. slow cooker. Stir in the tomatoes, tomato paste, water, sugar, Worcestershire sauce, oil and seasonings.</span></font></p><p><font color=\"#4d5156\"><span style=\"font-size: 14px\">Cook, covered, on low 8-10 hours. Discard bay leaves. Serve with spaghetti.</span></font></p>"
           },
           "TitlePart": {
             "Title": "Spaghetti"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Barbecued Chicken",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "6 bone-in chicken breast halves (8 ounces each)\r\n1/3 cup chopped onion\r\n3/4 cup ketchup\r\n1/2 cup water\r\n1/3 cup white vinegar\r\n3 tablespoons brown sugar\r\n1 tablespoon Worcestershire sauce\r\n1 teaspoon ground mustard\r\n1/4 teaspoon salt\r\n1/8 teaspoon pepper"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Preheat oven to 350°. In a nonstick skillet coated lightly with oil, brown chicken over medium heat. Transfer to a 13x9-in. baking dish coated with cooking spray.</p><p>Recoat skillet with oil. Add onion; cook and stir over medium heat until tender. Stir in remaining ingredients; bring to a boil. Reduce heat; simmer, uncovered, 15 minutes. Pour over chicken.</p><p>Bake, uncovered, until a thermometer inserted in chicken reads 170°, 35-45 minutes.</p><p><br></p>"
+          },
+          "TitlePart": {
+            "Title": "Barbecued Chicken"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Country Chicken",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "3/4 cup crushed cornflakes\r\n1/2 teaspoon poultry seasoning\r\n1/2 teaspoon paprika\r\n1/4 teaspoon salt\r\n1/4 teaspoon dried thyme\r\n1/4 teaspoon pepper\r\n2 tablespoons fat-free evaporated milk\r\n4 boneless skinless chicken breast halves (4 ounces each)\r\n2 teaspoons canola oil\r\nGRAVY:\r\n1 tablespoon butter\r\n1 tablespoon all-purpose flour\r\n1/4 teaspoon pepper\r\n1/8 teaspoon salt\r\n1/2 cup fat-free evaporated milk\r\n1/4 cup condensed chicken broth, undiluted\r\n1 teaspoon sherry or additional condensed chicken broth\r\n2 tablespoons minced chives"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>n a shallow bowl, combine the first six ingredients. Place milk in another shallow bowl. Dip chicken in milk, then roll in cornflake mixture.</p><p>In a large nonstick skillet, cook chicken in oil over medium heat until a thermometer reads 170°, 6-8 minutes on each side.</p><p>Meanwhile, in a small saucepan, melt butter. Stir in the flour, pepper, and salt until smooth. Gradually stir in the milk, broth and sherry. Bring to a boil; cook and stir until thickened, 1-2 minutes. Stir in chives. Serve with chicken.</p>"
+          },
+          "TitlePart": {
+            "Title": "Country Chicken"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Swedish Meatballs",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 15.0
+            },
+            "Ingredients": {
+              "Text": "3/4 cup seasoned bread crumbs\r\n1 medium onion, chopped\r\n2 large eggs, lightly beaten\r\n1/3 cup minced fresh parsley\r\n1 teaspoon coarsely ground pepper\r\n3/4 teaspoon salt\r\n2 pounds ground beef\r\nGRAVY:\r\n1/2 cup all-purpose flour\r\n2-3/4 cups 2% milk\r\n2 cans (10-1/2 ounces each) condensed beef consomme, undiluted\r\n1 tablespoon Worcestershire sauce\r\n1 teaspoon coarsely ground pepper\r\n3/4 teaspoon salt\r\nNOODLES:\r\n1 package (16 ounces) egg noodles\r\n1/4 cup butter, cubed\r\n1/4 cup minced fresh parsley"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>n a large bowl, combine the first 6 ingredients. Add beef; mix lightly but thoroughly. Shape into 1-1/2-in. meatballs (about 36). In a large skillet over medium heat, brown meatballs in batches. Using a slotted spoon, remove to paper towels to drain, reserving drippings in pan.</p><p>For gravy, stir flour into drippings; cook over medium-high heat until light brown (do not burn). Gradually whisk in milk until smooth. Stir in the consomme, Worcestershire sauce, pepper and salt. Bring to a boil over medium-high heat; cook and stir for 2 minutes or until thickened.</p><p>Reduce heat to medium-low; return meatballs to pan. Cook, uncovered, 15-20 minutes longer or until meatballs are cooked through, stirring occasionally.</p><p>Meanwhile, cook noodles according to package directions. Drain; toss with butter. Serve with meatball mixture; sprinkle with parsley.</p>"
+          },
+          "TitlePart": {
+            "Title": "Swedish Meatballs"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Beef Stroganoff",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "2 pounds beef stew meat, cut into 1-inch cubes\r\n1 can (10-3/4 ounces) condensed cream of celery soup, undiluted\r\n1 can (10-3/4 ounces) condensed cream of mushroom soup, undiluted\r\n1 medium onion, chopped\r\n1 jar (6 ounces) sliced mushrooms, drained\r\n1 envelope onion soup mix\r\n1/2 teaspoon pepper\r\n1 cup sour cream\r\nHot cooked noodles"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>In a 3-qt. slow cooker, combine the first 7 ingredients. Cover and cook on low for 8 hours or until beef is tender. Stir in sour cream. Serve with noodles.<br></p>"
+          },
+          "TitlePart": {
+            "Title": "Beef Stroganoff"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Lasagna",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "9 lasagna noodles\r\n1-1/4 pounds bulk Italian sausage\r\n3/4 pound ground beef\r\n1 medium onion, diced\r\n3 garlic cloves, minced\r\n2 cans (one 28 ounces, one 15 ounces) crushed tomatoes\r\n2 cans (6 ounces each) tomato paste\r\n2/3 cup water\r\n2 to 3 tablespoons sugar\r\n3 tablespoons plus 1/4 cup minced fresh parsley, divided\r\n2 teaspoons dried basil\r\n3/4 teaspoon fennel seed\r\n3/4 teaspoon salt, divided\r\n1/4 teaspoon coarsely ground pepper\r\n1 large egg, lightly beaten\r\n1 carton (15 ounces) ricotta cheese\r\n4 cups shredded part-skim mozzarella cheese\r\n3/4 cup grated Parmesan cheese"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Cook noodles according to package directions; drain. Meanwhile, in a Dutch oven, cook sausage, beef and onion over medium heat 8-10 minutes or until meat is no longer pink, breaking up meat into crumbles. Add garlic; cook 1 minute. Drain.</p><p>Stir in tomatoes, tomato paste, water, sugar, 3 tablespoons parsley, basil, fennel, 1/2 teaspoon salt and pepper; bring to a boil. Reduce heat; simmer, uncovered, 30 minutes, stirring occasionally.</p><p>In a small bowl, mix egg, ricotta cheese, and remaining parsley and salt.</p><p>Preheat oven to 375°. Spread 2 cups meat sauce into an ungreased 13x9-in. baking dish. Layer with 3 noodles and a third of the ricotta mixture. Sprinkle with 1 cup mozzarella cheese and 2 tablespoons Parmesan cheese. Repeat layers twice. Top with remaining meat sauce and cheeses (dish will be full).</p><p>Bake, covered, 25 minutes. Bake, uncovered, 25 minutes longer or until bubbly. Let stand 15 minutes before serving.</p>"
+          },
+          "TitlePart": {
+            "Title": "Lasagna"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Glazed Salmon",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "1 salmon fillet (1 pound)\r\n1/4 teaspoon salt\r\n1/4 teaspoon pepper\r\n3 tablespoons brown sugar\r\n4 teaspoons Dijon mustard\r\n1 tablespoon reduced-sodium soy sauce\r\n1 teaspoon rice vinegar"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Preheat oven to 425°. Cut salmon into 4 portions; place in a foil-lined 15x10x1-in. pan. Sprinkle with salt and pepper. Roast 10 minutes. Remove from oven; preheat broiler.</p><p>In a small saucepan, mix remaining ingredients; bring just to a boil. Brush over salmon. Broil 6 in. from heat until fish just begins to flake easily with a fork, 1-2 minutes.</p>"
+          },
+          "TitlePart": {
+            "Title": "Glazed Salmon"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Roasted Chicken",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "1/2 cup butter, cubed\r\n4 tablespoons minced fresh rosemary or 2 tablespoons dried rosemary, crushed\r\n2 tablespoons minced fresh parsley\r\n1 teaspoon salt\r\n1/2 teaspoon pepper\r\n3 garlic cloves, minced\r\n1 whole roasting chicken (5 to 6 pounds)\r\n6 small red potatoes, halved\r\n6 medium carrots, halved lengthwise and cut into 2-inch pieces\r\n2 medium onions, quartered"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>In a small saucepan, melt butter; stir in the seasonings and garlic. Place chicken breast side up on a rack in a shallow roasting pan; tie drumsticks together with kitchen string. Spoon half of the butter mixture over chicken. Place the potatoes, carrots and onions around chicken. Drizzle remaining butter mixture over vegetables.</p><p>Bake at 350° for 1-1/2 hours. Baste with cooking juices; bake 30-60 minutes longer, basting occasionally, until a thermometer inserted in thickest part of thigh reads 170°-175°. (Cover loosely with foil if chicken browns too quickly.)</p><p>Let stand 10-15 minutes, tented with foil if necessary, before carving. Serve with vegetables.</p>"
+          },
+          "TitlePart": {
+            "Title": "Roasted Chicken"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Meal",
+          "DisplayText": "Shepherd’s Pie",
+          "Latest": true,
+          "Published": true,
+          "Owner": null,
+          "Author": null,
+          "Meal": {
+            "Price": {
+              "Value": 25.0
+            },
+            "Ingredients": {
+              "Text": "1 pound ground beef\r\n1 cup chopped onion\r\n2 cups frozen corn, thawed\r\n2 cups frozen peas, thawed\r\n2 tablespoons ketchup\r\n1 tablespoon Worcestershire sauce\r\n2 teaspoons minced garlic\r\n1 tablespoon cornstarch\r\n1 teaspoon beef bouillon granules\r\n1/2 cup cold water\r\n1/2 cup sour cream\r\n3-1/2 cups mashed potatoes (prepared with milk and butter)\r\n3/4 cup shredded cheddar cheese"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>n a large skillet, cook beef and onion over medium heat until meat is no longer pink; drain. Stir in the corn, peas, ketchup, Worcestershire sauce and garlic. Reduce heat to medium-low; cover and cook for 5 minutes.</p><p>Combine the cornstarch, bouillon and water until well blended; stir into beef mixture. Bring to a boil over medium heat; cook and stir for 2 minutes or until thickened. Stir in sour cream and heat through (do not boil).</p><p>Spread mashed potatoes over the top; sprinkle with cheese. Cover and cook until potatoes are heated through and cheese is melted.</p>"
+          },
+          "TitlePart": {
+            "Title": "Shepherd’s Pie"
           }
         }
       ]
