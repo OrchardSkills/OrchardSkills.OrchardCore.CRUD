@@ -4,7 +4,7 @@ using OrchardCore.Modules.Manifest;
     Name = "OrchardCore.CRUD",
     Author = "Orchard Skills",
     Website = "https://orchardcore.net",
-    Version = "0.0.1",
+    Version = "1.0.0-rc2",
     Description = "OrchardCore.CRUD",
     Category = "Content Management"
 )]
