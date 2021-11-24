@@ -10,6 +10,7 @@ using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display;
 using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.ContentManagement.Records;
+using OrchardCore.Contents.ViewModels;
 using OrchardCore.CRUD.ViewModels;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.ModelBinding;
@@ -76,11 +77,20 @@ namespace OrchardCore.CRUD.Controllers
                 contentItemSummaries.Add(await _contentItemDisplayManager.BuildDisplayAsync(contentItem, _updateModelAccessor.ModelUpdater, "Summary"));
             }
 
-            var viewModel = new ListContentsViewModel
-            {
+
+            // Populate options pager summary values.
+            var startIndex = (pagerShape.Page - 1) * (pagerShape.PageSize) + 1;
+            var options = new ContentOptionsViewModel {
+                StartIndex = startIndex,
+                EndIndex = startIndex + contentItemSummaries.Count - 1,
+                ContentItemsCount = contentItemSummaries.Count,
+                TotalItemCount = pagerShape.TotalItemCount
+            };
+
+            var viewModel = new ViewModels.ListContentsViewModel {
                 ContentItems = contentItemSummaries,
-                Pager = pagerShape
-                //Options = model.Options
+                Pager = pagerShape,
+                Options = options
             };
 
             return View(viewModel);
