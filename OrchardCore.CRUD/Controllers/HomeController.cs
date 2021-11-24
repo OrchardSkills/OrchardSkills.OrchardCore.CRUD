@@ -115,7 +115,7 @@ namespace OrchardCore.CRUD.Controllers
 
                 var typeDefinition = _contentDefinitionManager.GetTypeDefinition(contentItem.ContentType);
 
-                _notifier.Success(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
+                await _notifier.SuccessAsync(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
                     ? H["Your content has been published."]
                     : H["Your {0} has been published.", typeDefinition.DisplayName]);
             });
@@ -132,7 +132,7 @@ namespace OrchardCore.CRUD.Controllers
 
             if (!ModelState.IsValid)
             {
-                _session.Cancel();
+                await _session.CancelAsync();
                 return View(model);
             }
 
@@ -187,7 +187,7 @@ namespace OrchardCore.CRUD.Controllers
 
                 var typeDefinition = _contentDefinitionManager.GetTypeDefinition(contentItem.ContentType);
 
-                _notifier.Success(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
+                await _notifier.SuccessAsync(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
                     ? H["Your content has been published."]
                     : H["Your {0} has been published.", typeDefinition.DisplayName]);
             });
@@ -205,7 +205,7 @@ namespace OrchardCore.CRUD.Controllers
             var model = await _contentItemDisplayManager.UpdateEditorAsync(contentItem, _updateModelAccessor.ModelUpdater, false);
             if (!ModelState.IsValid)
             {
-                _session.Cancel();
+                await _session.CancelAsync();
                 return View("Edit", model);
             }
 
@@ -241,7 +241,7 @@ namespace OrchardCore.CRUD.Controllers
 
                 await _contentManager.RemoveAsync(contentItem);
 
-                _notifier.Success(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
+                await _notifier.SuccessAsync(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
                     ? H["That content has been removed."]
                     : H["That {0} has been removed.", typeDefinition.DisplayName]);
             }
