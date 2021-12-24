@@ -10,7 +10,7 @@ using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display;
 using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.ContentManagement.Records;
-using OrchardCore.CRUD.ViewModels;
+using OrchardCore.Contents.ViewModels;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.DisplayManagement.Notify;
@@ -23,7 +23,6 @@ namespace OrchardCore.CRUD.Controllers
 {
     public class HomeController : Controller
     {
-        private const string contentType = "Meal";
 
         private readonly IContentManager _contentManager;
         private readonly IContentDefinitionManager _contentDefinitionManager;
@@ -34,6 +33,7 @@ namespace OrchardCore.CRUD.Controllers
         private readonly ISession _session;
         private readonly ISiteService _siteService;
         private readonly IUpdateModelAccessor _updateModelAccessor;
+        private readonly IShapeFactory _shapeFactory;
 
         public HomeController(IContentManager contentManager, IContentDefinitionManager contentDefinitionManager, IContentItemDisplayManager contentItemDisplayManager, IHtmlLocalizer<HomeController> htmlLocalizer, INotifier notifier, ISession session, IShapeFactory shapeFactory, ISiteService siteService, IUpdateModelAccessor updateModelAccessor)
         {
@@ -47,15 +47,16 @@ namespace OrchardCore.CRUD.Controllers
 
             H = htmlLocalizer;
             New = shapeFactory;
+            _shapeFactory = shapeFactory;
         }
 
-        public async Task<IActionResult> Index(PagerParameters pagerParameters) //ListContentsViewModel model, 
+        public async Task<IActionResult> Index(string contentTypeName, PagerParameters pagerParameters) 
         {
             var siteSettings = await _siteService.GetSiteSettingsAsync();
             var pager = new Pager(pagerParameters, siteSettings.PageSize);
-
+            
             var query = _session.Query<ContentItem, ContentItemIndex>();
-            query = query.With<ContentItemIndex>(x => x.ContentType == contentType);
+            query = query.With<ContentItemIndex>(x => x.ContentType == contentTypeName);
             query = query.With<ContentItemIndex>(x => x.Published);
             query = query.OrderByDescending(x => x.PublishedUtc);
 
@@ -76,24 +77,42 @@ namespace OrchardCore.CRUD.Controllers
                 contentItemSummaries.Add(await _contentItemDisplayManager.BuildDisplayAsync(contentItem, _updateModelAccessor.ModelUpdater, "Summary"));
             }
 
-            var viewModel = new ListContentsViewModel
-            {
-                ContentItems = contentItemSummaries,
-                Pager = pagerShape
-                //Options = model.Options
+
+            // Populate options pager summary values.
+            var startIndex = (pagerShape.Page - 1) * (pagerShape.PageSize) + 1;
+            var options = new ContentOptionsViewModel {
+                StartIndex = startIndex,
+                EndIndex = startIndex + contentItemSummaries.Count - 1,
+                ContentItemsCount = contentItemSummaries.Count,
+                TotalItemCount = pagerShape.TotalItemCount,
+                SelectedContentType = contentTypeName
             };
+
+            var viewModel = new ListContentsViewModel {
+                ContentItems = contentItemSummaries,
+                Pager = pagerShape,
+                Options = options
+            };
+
+            var shapeViewModel = await _shapeFactory.CreateAsync<ListContentsViewModel>("ContentsAdminList", viewModel =>
+            {
+                viewModel.ContentItems = contentItemSummaries;
+                viewModel.Pager = pagerShape;
+                viewModel.Options = options;
+                //viewModel.Header = header;
+            });
 
             return View(viewModel);
         }
 
-        public async Task<IActionResult> Create(string id = contentType)
+        public async Task<IActionResult> Create(string contentTypeName)
         {
-            if (String.IsNullOrWhiteSpace(id))
+            if (String.IsNullOrWhiteSpace(contentTypeName))
             {
                 return NotFound();
             }
 
-            var contentItem = await _contentManager.NewAsync(id);
+            var contentItem = await _contentManager.NewAsync(contentTypeName);
 
 
             var model = await _contentItemDisplayManager.BuildEditorAsync(contentItem, _updateModelAccessor.ModelUpdater, true);
@@ -103,27 +122,27 @@ namespace OrchardCore.CRUD.Controllers
 
         [HttpPost, ActionName("Create")]
         [FormValueRequired("submit.Publish")]
-        public async Task<IActionResult> CreateAndPublishPOST([Bind(Prefix = "submit.Publish")] string submitPublish, string returnUrl, string id = contentType)
+        public async Task<IActionResult> CreateAndPublishPOST(string contentTypeName, [Bind(Prefix = "submit.Publish")] string submitPublish, string returnUrl)
         {
             var stayOnSamePage = submitPublish == "submit.PublishAndContinue";
             // pass a dummy content to the authorization check to check for "own" variations
-            var dummyContent = await _contentManager.NewAsync(id);
+            var dummyContent = await _contentManager.NewAsync(contentTypeName);
 
-            return await CreatePOST(id, returnUrl, stayOnSamePage, async contentItem =>
+            return await CreatePOST(contentTypeName, returnUrl, stayOnSamePage, async contentItem =>
             {
                 await _contentManager.PublishAsync(contentItem);
 
                 var typeDefinition = _contentDefinitionManager.GetTypeDefinition(contentItem.ContentType);
 
-                _notifier.Success(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
+                await _notifier.SuccessAsync(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
                     ? H["Your content has been published."]
                     : H["Your {0} has been published.", typeDefinition.DisplayName]);
             });
         }
 
-        private async Task<IActionResult> CreatePOST(string id, string returnUrl, bool stayOnSamePage, Func<ContentItem, Task> conditionallyPublish)
+        private async Task<IActionResult> CreatePOST(string contentTypeName, string returnUrl, bool stayOnSamePage, Func<ContentItem, Task> conditionallyPublish)
         {
-            var contentItem = await _contentManager.NewAsync(id);
+            var contentItem = await _contentManager.NewAsync(contentTypeName);
 
             // Set the current user as the owner to check for ownership permissions on creation
             contentItem.Owner = User.Identity.Name;
@@ -132,7 +151,7 @@ namespace OrchardCore.CRUD.Controllers
 
             if (!ModelState.IsValid)
             {
-                _session.Cancel();
+                await _session.CancelAsync();
                 return View(model);
             }
 
@@ -155,17 +174,40 @@ namespace OrchardCore.CRUD.Controllers
             return RedirectToRoute(returnUrl);
         }
 
-        [HttpGet]
         public async Task<IActionResult> Edit(string contentItemId)
         {
             var contentItem = await _contentManager.GetAsync(contentItemId, VersionOptions.Latest);
 
             if (contentItem == null)
+            {
                 return NotFound();
+            }
+
+            //if (!await _authorizationService.AuthorizeAsync(User, CommonPermissions.EditContent, contentItem))
+            //{
+            //    return Forbid();
+            //}
 
             var model = await _contentItemDisplayManager.BuildEditorAsync(contentItem, _updateModelAccessor.ModelUpdater, false);
 
             return View(model);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        [FormValueRequired("submit.Save")]
+        public Task<IActionResult> EditPOST(string contentItemId, [Bind(Prefix = "submit.Save")] string submitSave, string returnUrl)
+        {
+            var stayOnSamePage = submitSave == "submit.SaveAndContinue";
+            return EditPOST(contentItemId, returnUrl, stayOnSamePage, async contentItem =>
+            {
+                await _contentManager.SaveDraftAsync(contentItem);
+
+                var typeDefinition = _contentDefinitionManager.GetTypeDefinition(contentItem.ContentType);
+
+                await _notifier.SuccessAsync(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
+                    ? H["Your content draft has been saved."]
+                    : H["Your {0} draft has been saved.", typeDefinition.DisplayName]);
+            });
         }
 
         [HttpPost, ActionName("Edit")]
@@ -181,17 +223,23 @@ namespace OrchardCore.CRUD.Controllers
                 return NotFound();
             }
 
+            //if (!await _authorizationService.AuthorizeAsync(User, CommonPermissions.PublishContent, content))
+            //{
+            //    return Forbid();
+            //}
+
             return await EditPOST(contentItemId, returnUrl, stayOnSamePage, async contentItem =>
             {
                 await _contentManager.PublishAsync(contentItem);
 
                 var typeDefinition = _contentDefinitionManager.GetTypeDefinition(contentItem.ContentType);
 
-                _notifier.Success(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
+                await _notifier.SuccessAsync(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
                     ? H["Your content has been published."]
                     : H["Your {0} has been published.", typeDefinition.DisplayName]);
             });
         }
+
 
         private async Task<IActionResult> EditPOST(string contentItemId, string returnUrl, bool stayOnSamePage, Func<ContentItem, Task> conditionallyPublish)
         {
@@ -202,33 +250,33 @@ namespace OrchardCore.CRUD.Controllers
                 return NotFound();
             }
 
+            //if (!await _authorizationService.AuthorizeAsync(User, CommonPermissions.EditContent, contentItem))
+            //{
+            //    return Forbid();
+            //}
+
             var model = await _contentItemDisplayManager.UpdateEditorAsync(contentItem, _updateModelAccessor.ModelUpdater, false);
+
             if (!ModelState.IsValid)
             {
-                _session.Cancel();
-                return View("Edit", model);
+                await _session.CancelAsync();
+                return View(nameof(Edit), model);
             }
-
-            // The content item needs to be marked as saved in case the drivers or the handlers have
-            // executed some query which would flush the saved entities inside the above UpdateEditorAsync.
-            _session.Save(contentItem);
 
             await conditionallyPublish(contentItem);
 
-            //if (returnUrl == null)
-            //{
-            //    return RedirectToAction("Edit", new RouteValueDictionary { { "ContentItemId", contentItem.ContentItemId } });
-            //}
-            //else if (stayOnSamePage)
-            //{
-            //    return RedirectToAction("Edit", new RouteValueDictionary { { "ContentItemId", contentItem.ContentItemId }, { "returnUrl", returnUrl } });
-            //}
-            //else
-            //{
-            //    return LocalRedirect(returnUrl);
-            //}
-
-            return RedirectToRoute(returnUrl);
+            if (returnUrl == null)
+            {
+                return RedirectToAction(nameof(Edit), new RouteValueDictionary { { "ContentItemId", contentItem.ContentItemId } });
+            }
+            else if (stayOnSamePage)
+            {
+                return RedirectToAction(nameof(Edit), new RouteValueDictionary { { "ContentItemId", contentItem.ContentItemId }, { "returnUrl", returnUrl } });
+            }
+            else
+            {
+                return this.LocalRedirect(returnUrl, true);
+            }
         }
 
         public async Task<IActionResult> Remove(string contentItemId, string returnUrl)
@@ -241,7 +289,7 @@ namespace OrchardCore.CRUD.Controllers
 
                 await _contentManager.RemoveAsync(contentItem);
 
-                _notifier.Success(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
+                await _notifier.SuccessAsync(string.IsNullOrWhiteSpace(typeDefinition.DisplayName)
                     ? H["That content has been removed."]
                     : H["That {0} has been removed.", typeDefinition.DisplayName]);
             }

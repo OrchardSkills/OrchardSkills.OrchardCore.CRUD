@@ -1,27 +1,30 @@
 @model ListContentsViewModel
 @using OrchardCore.ContentManagement;
-@using OrchardCore.CRUD.ViewModels;
+@using OrchardCore.Contents.ViewModels;
+
 @inject IContentManager ContentManager
 
+
 @{
-var pageTitle = T["Meals"];
+    var contentTypeDisplayName = Model.Options.SelectedContentType;
+    var pageTitle = T["Manage Content"];
+    if (!string.IsNullOrWhiteSpace(contentTypeDisplayName)) {
+        pageTitle = T["Manage {0} Content", (string)contentTypeDisplayName];
+    }
 }
 
-<h1>@RenderTitleSegments(pageTitle)</h1>
-<a asp-action="Create" asp-controller="Home">@T["Create"]</a>
-<form asp-action="List" asp-controller="Admin" method="post" id="items-form" autocomplete="off">
+<zone Name="Title"><h1>@RenderTitleSegments(pageTitle)</h1></zone>
+
+<a asp-action="Create" asp-controller="Home" asp-route-contentTypeName="@Model.Options.SelectedContentType" asp-route-returnUrl= "@FullRequestPath">@T["Create"]</a>
+<form asp-action="List" asp-controller="Admin" method="post" id="items-form" autocomplete="off" asp-route-returnUrl= "@FullRequestPath">
     <ul class="list-group with-checkbox">
-        @if (Model.ContentItems.Count > 0)
-        {
-            @foreach (var contentItemSummary in Model.ContentItems)
-            {
+        @if (Model.ContentItems.Count > 0) {
+            @foreach (var contentItemSummary in Model.ContentItems) {
                 <li class="list-group-item">
                     @await DisplayAsync(contentItemSummary)
                 </li>
             }
-        }
-        else
-        {
+        } else {
             <li class="list-group-item">
                 <div class="alert alert-info">
                     @T["No results found."]

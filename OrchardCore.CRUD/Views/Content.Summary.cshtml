@@ -41,8 +41,8 @@
         </div>
     }
     <div class="float-right">
-        <a asp-action="Edit" asp-controller="Home" asp-route-contentItemId="@contentItem.ContentItemId">Edit</a>&nbsp;
-        <a asp-action="Remove" asp-controller="Home" asp-route-contentItemId="@contentItem.ContentItemId">Delete</a>
+        <a asp-action="Edit" asp-controller="Home" asp-route-contentItemId="@contentItem.ContentItemId" asp-route-returnUrl="@FullRequestPath">Edit</a>&nbsp;
+        <a asp-action="Remove" asp-controller="Home" asp-route-contentItemId="@contentItem.ContentItemId" asp-route-returnUrl="@FullRequestPath">Delete</a>
     </div>
 </div>
 
